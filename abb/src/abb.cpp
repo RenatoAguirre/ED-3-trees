@@ -37,14 +37,36 @@ void ABB::insert_rec(int val, ABBNode* node){
 	}
 }
 
-void ABB::insert(int val){
-	if (root == nullptr){
-		root = new ABBNode(val);
-	}
-	else{
-		insert_rec(val, root);
-	}
+void ABB::insert(int val) {
+    if (root == nullptr) {
+        root = new ABBNode(val);
+    } else {
+        ABBNode* current = root;
+        ABBNode* parent = nullptr;
+
+        while (current != nullptr) {
+            parent = current;
+            if (val < current->getData()) {
+                current = current->getLeft();
+            } else {
+                current = current->getRight();
+            }
+        }
+
+        if (val < parent->getData()) {
+            parent->setLeft(new ABBNode(val));
+        } else {
+            parent->setRight(new ABBNode(val));
+        }
+    }
+
+    // Mensaje de depuración
+    static int count = 0;
+    if (++count % 10000 == 0) {
+        std::cout << "Inserted " << count << " elements." << std::endl;
+    }
 }
+
 
 ABBNode* ABB::find_rec(int val, ABBNode* node){
     if (node == nullptr) {
