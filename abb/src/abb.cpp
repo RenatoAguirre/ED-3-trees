@@ -47,21 +47,19 @@ void ABB::insert(int val){
 }
 
 ABBNode* ABB::find_rec(int val, ABBNode* node){
-	ABBNode* ans = nullptr;
+    if (node == nullptr) {
+        return nullptr;  
+    }
 
-	if (node->getData() == val){
-		ans = node;
-	}
-	else{
-		if (val < node->getData()){
-			ans = find_rec(val, node->getLeft());
-		}
-		else{
-			ans = find_rec(val, node->getRight());
-		}
-	}
-
-	return ans;
+    if (node->getData() == val){
+        return node;
+    }
+    else if (val < node->getData()){
+        return find_rec(val, node->getLeft());
+    }
+    else{
+        return find_rec(val, node->getRight());
+    }
 }
 
 ABBNode* ABB::find(int val){
