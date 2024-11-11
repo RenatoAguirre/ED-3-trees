@@ -45,14 +45,10 @@ void runExperiments() {
     vector<string> sortedFiles = {
         "data_trees/keys_sorted_1024.bin", 
         "data_trees/keys_sorted_32768.bin", 
-        "data_trees/keys_sorted_1048576.bin", 
-        "data_trees/keys_sorted_33554432.bin"
     };
     vector<string> randomFiles = {
         "data_trees/keys_1024.bin", 
         "data_trees/keys_32768.bin", 
-        "data_trees/keys_1048576.bin", 
-        "data_trees/keys_33554432.bin"
     };
     string queryFile = "data_trees/queries_1000.bin";
     
