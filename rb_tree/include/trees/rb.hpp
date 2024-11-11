@@ -1,10 +1,3 @@
-/*
- * abb.hpp
- *
- *  Created on: Sep 2, 2022
- *      Author: jsaavedr
- */
-
 #ifndef RB_HPP_
 #define RB_HPP_
 
@@ -12,34 +5,35 @@
 
 namespace trees {
 
-enum RotationType{
-	case_1 = 10,
-	case_2 = 20,
-	case_3 = 30,
-	case_4 = 40,
-	//you can or should add more cases 
+enum RotationType {
+	case_1 = 10, // Left-Left case
+	case_2 = 20, // Right-Right case
+	case_3 = 30, // Left-Right case
+	case_4 = 40  // Right-Left case
+	// You can add more cases if necessary
 };
 
 class RB {
 private:
 	RBNode* root;
-	/*private methods, rotations*/
-	void balance(RBNode* node);
-	//void do_case_1(RBNode* node);
-	//void do_case_2(RBNode* node);
-	//....
-	RotationType getRotationType(RBNode* node);
+
+	// Private methods for balancing and rotations
+	void balance(RBNode* node);  // Balancing the tree
+	void rotateLeft(RBNode* node);  // Left rotation
+	void rotateRight(RBNode* node);  // Right rotation
+	RotationType getRotationType(RBNode* node);  // Determine rotation type
+
 public:
 	RB();
-	void insert(int val, RBNode* node);
-	void insert(int val);
-	RBNode* find(int val, RBNode* node);
-	RBNode* find(int val);
-	void traverse(RBNode* node, int level);
-	void traverse();
+	void insert(int val, RBNode* node);  // Insert a value
+	void insert(int val);  // Insert a value with no node reference (starting at root)
+	RBNode* find(int val, RBNode* node);  // Find a value starting from a node
+	RBNode* find(int val);  // Find a value starting from root
+	void traverse(RBNode* node, int level);  // Traverse and print the tree structure
+	void traverse();  // Traverse from root
 	virtual ~RB();
 };
 
-} /* namespace trees */
+}  // namespace trees
 
-#endif /* RB_HPP_ */
+#endif  // RB_HPP_
