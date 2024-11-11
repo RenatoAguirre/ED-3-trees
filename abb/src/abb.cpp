@@ -84,10 +84,20 @@ ABBNode* ABB::find_rec(int val, ABBNode* node){
     }
 }
 
-ABBNode* ABB::find(int val){
-	ABBNode* ans = nullptr;
-	ans = find_rec(val, root);
-	return ans;
+ABBNode* ABB::find(int val) {
+    ABBNode* current = root;
+
+    while (current != nullptr) {
+        if (current->getData() == val) {
+            return current;  // Value found, return the node
+        } else if (val < current->getData()) {
+            current = current->getLeft();  // Move to the left child
+        } else {
+            current = current->getRight();  // Move to the right child
+        }
+    }
+    
+    return nullptr;  // Value not found in the tree
 }
 
 void ABB::traverse_rec(ABBNode* node, int level){
