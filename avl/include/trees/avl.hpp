@@ -5,8 +5,8 @@
  *      Author: jsaavedr
  */
 
-#ifndef ABB_HPP_
-#define ABB_HPP_
+#ifndef AVL_HPP_
+#define AVL_HPP_
 
 #include "trees/avlNode.hpp"
 
